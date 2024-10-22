@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Oct 22 09:54:31 GMT 2024","Tue Oct 22 09:54:31 GMT 2024","447","chromium","product.spec.ts","Produc Swag Lab","","","Check whether product sort option high to low is working correctly",""
+"passed","Tue Oct 22 09:54:32 GMT 2024","Tue Oct 22 09:54:32 GMT 2024","440","chromium","product.spec.ts","Produc Swag Lab","","","Check whether product sort option ZA is working correctly",""
+"passed","Tue Oct 22 09:54:33 GMT 2024","Tue Oct 22 09:54:33 GMT 2024","553","chromium","product.spec.ts","Produc Swag Lab","","","Check user should be able to remove an inventory to the cart",""
+"passed","Tue Oct 22 09:54:30 GMT 2024","Tue Oct 22 09:54:31 GMT 2024","625","chromium","product.spec.ts","Produc Swag Lab","","","Check whether product sort option low to high is working correctly",""
+"passed","Tue Oct 22 09:54:32 GMT 2024","Tue Oct 22 09:54:33 GMT 2024","487","chromium","product.spec.ts","Produc Swag Lab","","","Check user should be able to add an inventory to the cart",""
+"passed","Tue Oct 22 09:54:31 GMT 2024","Tue Oct 22 09:54:32 GMT 2024","436","chromium","product.spec.ts","Produc Swag Lab","","","Check whether product sort option AZ is working correctly",""
