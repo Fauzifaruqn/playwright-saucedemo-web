@@ -1,0 +1,67 @@
+name: End to End Tests
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for Playwright test grep (e.g., @reservation)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '00 2 * * *'
+
+jobs:
+  tests:
+    name: Run Playwright Tests
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+
+    - name: Run Playwright tests
+      run: |
+        if [ "${{ github.event.inputs.tag }}" != "" ]; then
+          echo "Running tests with tag: ${{ github.event.inputs.tag }} and base URL: $PLAYWRIGHT_BASE_URL"
+          npm run test:e2e -- --grep "${{ github.event.inputs.tag }}"
+        else
+          npm run test:e2e
+        fi
+      continue-on-error: true
+      env:
+          PLAYWRIGHT_BASE_URL: 'https://www.saucedemo.com' 
+          
+    - name: Get Allure history
+      uses: actions/checkout@v3
+      if: always()
+      continue-on-error: true
+      with:
+        ref: test-automation-gh-pages
+        path: test-automation-gh-pages
+        
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      id: allure-report
+      with:
+        allure_results: allure-results
+        gh_pages: test-automation-gh-pages
+        allure_report: allure-report
+        allure_history: allure-history
+        keep_reports: 15
+
+    - name: Deploy report to Github Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: test-automation-gh-pages
+        publish_dir: allure-history
