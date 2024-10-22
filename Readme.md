@@ -60,3 +60,44 @@ npx playwright test
 npx playwright show-report
 ```
 
+## CI/CD Documentation
+
+### Workflow Overview
+- Triggers:
+    - Manual Dispatch (workflow_dispatch): The workflow can be triggered manually with an optional input for filtering tests by tag (e.g., @reservation).
+    - Scheduled (cron): The workflow is scheduled to run every day at 2 AM.
+
+```bash
+name: End to End Tests - API
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag for Playwright test grep (e.g., @reservation)'
+        required: false
+        default: ''
+  schedule:
+    - cron: '00 2 * * *'
+```
+- Jobs
+The job tests executes the Playwright tests in the following steps:
+
+* **Checkout the Repository**: Uses actions/checkout@v3 to pull the code from the repository.
+
+* **Setup Node.js**: Sets up Node.js version 18 using actions/setup-node@v3.
+
+* **Install Dependencies:** Runs npm ci to install project dependencies.
+
+* **Install Playwright Browsers:** Runs npx playwright install to install necessary browsers for Playwright tests.
+
+* **Run Playwright Tests:**
+
+    If a tag is provided via the manual dispatch (workflow_dispatch), tests matching the tag will be executed. Otherwise, all tests are executed.
+
+
+* **Get Allure Report History:** Checks out the gh-pages branch to preserve previous test report history.
+
+* **Generate Allure Report:** Uses the simple-elf/allure-report-action@master action to generate Allure test reports.
+
+* **Deploy Allure Report to GitHub Pages**: Publishes the generated Allure report to GitHub Pages using peaceiris/actions-gh-pages@v3. This ensures that the test results are available publicly or privately via GitHub Pages.
+
