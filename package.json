@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test:e2e" : "npx playwright test --project chromium"
+    "test:e2e": "npx playwright test --project chromium"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,8 @@
     "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.48.1",
     "@types/node": "^22.7.7",
+    "allure-commandline": "^2.30.0",
+    "allure-playwright": "^3.0.5",
     "dotenv": "^16.4.5"
   }
 }
