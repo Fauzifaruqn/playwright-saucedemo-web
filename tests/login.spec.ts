@@ -11,7 +11,9 @@ test.beforeEach(async ({loginAction, loginAssertion}) => {
 
 
 test.describe('Login to Swag lab page', () => {
-    test('Check the login functionality with accepted usernames and passwords', async (
+    test('Check the login functionality with accepted usernames and passwords',  {
+        tag: ["@p1", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion,
@@ -26,7 +28,9 @@ test.describe('Login to Swag lab page', () => {
         })
     })
 
-    test('Check the login functionality with valid usernames and invalid passwords', async (
+    test('Check the login functionality with valid usernames and invalid passwords',  {
+        tag: ["@p1", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion
@@ -43,7 +47,9 @@ test.describe('Login to Swag lab page', () => {
         })
     })
 
-    test('Check the login functionality with invalid usernames and valid passwords', async (
+    test('Check the login functionality with invalid usernames and valid passwords',  {
+        tag: ["@p1", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion
@@ -60,7 +66,9 @@ test.describe('Login to Swag lab page', () => {
         })
     })
 
-    test('Check the login functionality with blank username and password', async (
+    test('Check the login functionality with blank username and password',  {
+        tag: ["@p1", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion
@@ -74,7 +82,9 @@ test.describe('Login to Swag lab page', () => {
         })
     })
 
-    test('Check the login functionality with blank username and some password', async (
+    test('Check the login functionality with blank username and some password',  {
+        tag: ["@p2", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion
@@ -88,7 +98,9 @@ test.describe('Login to Swag lab page', () => {
         })
     })
 
-    test('Check the login functionality with some username and blank password', async (
+    test('Check the login functionality with some username and blank password',  {
+        tag: ["@p2", "@login"],
+      }, async (
         {
         loginAction,
         loginAssertion

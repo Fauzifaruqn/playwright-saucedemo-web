@@ -24,9 +24,9 @@ export class ProductAssertion {
     
         for (let i = 0; i < prices.length - 1; i++) {
             if (order === 'LowToHigh') {
-                expect(prices[i]).toBeLessThanOrEqual(prices[i + 1]);  // Check if prices are in ascending order
+                expect(prices[i], `Inventory Price ${prices[i]} To be less than or Equal Inventory price  ${prices[i + 1]}`).toBeLessThanOrEqual(prices[i + 1]);  // Check if prices are in ascending order
             } else {
-                expect(prices[i]).toBeGreaterThanOrEqual(prices[i + 1]);  // Check if prices are in descending order
+                expect(prices[i],`Inventory Price ${prices[i]} To be greter than or Equal Inventory price  ${prices[i + 1]}`).toBeGreaterThanOrEqual(prices[i + 1]);  // Check if prices are in descending order
             }
         }
     }

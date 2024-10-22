@@ -14,7 +14,9 @@ test.beforeEach(async ({loginAction, loginAssertion}) => {
 })
 
 test.describe('Checkout Swag Lab', () => {
-    test('User should be able to checkout and complete purchase', async ({
+    test('User should be able to checkout and complete purchase', {
+        tag: ["@p1", "@checkout"],
+      }, async ({
         productAssertion,
         productAction,
         component,

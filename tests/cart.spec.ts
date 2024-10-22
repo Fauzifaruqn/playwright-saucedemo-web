@@ -13,7 +13,9 @@ test.beforeEach(async ({loginAction, loginAssertion}) => {
 })
 
 test.describe('Cart Swag Lab', () => {
-    test('User should be able to see added item in my shopping cart page', async ({
+    test('User should be able to see added item in my shopping cart page', {
+        tag: ["@p1", "@cart"],
+      }, async ({
         productAssertion,
         productAction,
         component,

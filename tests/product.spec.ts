@@ -14,7 +14,9 @@ test.beforeEach(async ({loginAction, loginAssertion}) => {
 
 
 test.describe('Produc Swag Lab', () => {
-    test('Check whether product sort option low to high is working correctly', async (
+    test('Check whether product sort option low to high is working correctly',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
@@ -31,7 +33,9 @@ test.describe('Produc Swag Lab', () => {
         })
     })  
 
-    test('Check whether product sort option high to low is working correctly', async (
+    test('Check whether product sort option high to low is working correctly',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
@@ -48,7 +52,9 @@ test.describe('Produc Swag Lab', () => {
         })
     })  
 
-    test('Check whether product sort option AZ is working correctly', async (
+    test('Check whether product sort option AZ is working correctly',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
@@ -65,7 +71,9 @@ test.describe('Produc Swag Lab', () => {
         })
     })  
 
-    test('Check whether product sort option ZA is working correctly', async (
+    test('Check whether product sort option ZA is working correctly',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
@@ -82,7 +90,9 @@ test.describe('Produc Swag Lab', () => {
         })
     })  
 
-    test('Check user should be able to add an inventory to the cart', async (
+    test('Check user should be able to add an inventory to the cart',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
@@ -98,7 +108,9 @@ test.describe('Produc Swag Lab', () => {
        
     })  
 
-    test('Check user should be able to remove an inventory to the cart', async (
+    test('Check user should be able to remove an inventory to the cart',  {
+        tag: ["@p1", "@product"],
+      }, async (
         {
         productAssertion,
         productAction
